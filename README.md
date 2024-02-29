@@ -1,4 +1,4 @@
-# University math courses crutch
+# tools for uni math
 
 > RREF on matrices, Integration, Differentiation, Evaluating Logic, & Solving Polynomials
 
