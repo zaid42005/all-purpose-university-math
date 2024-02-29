@@ -1,0 +1,89 @@
+
+body {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center; 
+  align-items: center; 
+  height: 100vh; 
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.quadratic-container form {
+  margin-bottom: 10px; 
+}
+
+.container button {
+  margin-top: 10px; 
+  background-color: brown;
+  padding: 5px;
+}
+
+
+.container form input {
+  margin-left: 5px; 
+}
+
+nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: #223; 
+}
+
+nav ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+nav ul li {
+  display: inline;
+}
+
+nav ul li a {
+  display: inline-block;
+  padding: 10px 20px;
+  color: #fff; 
+  text-decoration: none;
+}
+
+nav ul li a:hover {
+  background-color: #555; 
+}
+
+
+h2 {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  
+  
+}
+
+
+/* bouncy bouncy */
+h2:hover {
+  animation: bounce 0.5s infinite alternate; 
+
+}
+
+@keyframes bounce {
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(-15px);
+  }
+}
+
+.iframe{
+  width: 30vw;
+  height: 35vh;
+
+}
