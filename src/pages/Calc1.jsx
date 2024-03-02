@@ -3,6 +3,7 @@
 // Woflfram API would be a good subsitute
 
 import { useState } from "react";
+import Wolfram from "../components/WolframBasic";
 const Calc1 = () => {
     const [input, setInput] = useState("");
     const [differential, setDifferential] = useState("");
@@ -11,12 +12,14 @@ const Calc1 = () => {
       const { value } = event.target;
       setInput(value)
     };
+  const [result, setResult] = useState(null);
+  const [error, setError] = useState(null);
 
   
     const handleDifferentiation = () => {
         if (!input) return; // Check if input is not empty
         
-        // Parse the input equation
+        /* Parse the input equation
         const terms = input.split(/([+-])/); // Split based on '+' or '-' signs
         
         // Initialize variables to store differentiated terms
@@ -83,35 +86,51 @@ const Calc1 = () => {
         });
         
         // Join the differentiated terms with ' ' and set the result
-        setDifferential(differentialTerms.join(' '));
+        setDifferential(differentialTerms.join(' '));*/
+        fetch(`http://api.wolframalpha.com/v1/simple?appid=GUXHLW-8KJ7L3WQ42&i=${encodeURIComponent(input)}`)
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error("Failed to fetch data");
+        }
+        return response.text();
+      })
+      .then((data) => {
+        setResult(data);
+      })
+      .catch((error) => {
+        setError(error.message);
+      });
     };
     
-  
-    return (
-    
-    <div className="container" >  
-    <h2> THIS ONLY WORKS FOR BASIC INPUTS LIKE 2x^2 + 4x RN</h2>
-        <form >
-          <label>
-            y =  
-            <input
-              type="text"
-              name="a"
-              onChange={handleInputChange}
-              value={input}
-            />
-          </label>
-        </form>
-        
-        <div/>
-        <button onClick={handleDifferentiation}>
-          Differentiate
-        </button>
-        <p>Here is the derivative of y: <br></br>  {differential}</p>
-        <br></br>
-      </div>
-      
-    );
+  return(
+    <div className="container">
+      <h1> API SERVER SIDE DOWN</h1>
+      <h2>Enter Your Equation</h2>
+      <form>
+        <label>
+          y =  
+          <input
+            type="text"
+            name="a"
+            onChange={handleInputChange}
+            value={input}
+          />
+        </label>
+      </form>
+
+      <button onClick={handleDifferentiation}>
+        Differentiate
+      </button>
+
+      {error && <p>Error: {error}</p>}
+      {result && (
+        <div>
+          <h2>Result</h2>
+          <div dangerouslySetInnerHTML={{ __html: result }} />
+        </div>
+      )}
+    </div>
+  );
   }
 
   export default Calc1

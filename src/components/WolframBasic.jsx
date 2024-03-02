@@ -12,7 +12,7 @@ const Wolfram = () => {
         if (!response.ok) {
           throw new Error("Failed to fetch data");
         }
-        return response.text(); // Use text() instead of json() since the response is not JSON
+        return response.text(); 
       })
       .then((data) => {
         setData(data);
@@ -23,9 +23,9 @@ const Wolfram = () => {
   };
 
   useEffect(() => {
-    // Fetch data when component mounts
+    
     fetchData(inputQuery);
-  }, []); // Empty dependency array means this effect runs only once on component mount
+  }, []); 
 
   const handleInputChange = (event) => {
     setInputQuery(event.target.value);
