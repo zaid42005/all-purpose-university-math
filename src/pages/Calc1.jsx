@@ -1,5 +1,6 @@
-// this is all gpt bullshit that only partially works, need to figure this out later
+// this is all gpt stuff that only partially works, need to figure this out later
 
+// Woflfram API would be a good subsitute
 
 import { useState } from "react";
 const Calc1 = () => {
@@ -10,6 +11,7 @@ const Calc1 = () => {
       const { value } = event.target;
       setInput(value)
     };
+
   
     const handleDifferentiation = () => {
         if (!input) return; // Check if input is not empty
