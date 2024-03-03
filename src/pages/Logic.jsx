@@ -2,11 +2,16 @@ import { useState } from "react"
 
 const Logic = () => {
     const [input, setInput] = useState("");
+    const [result,setResult] = useState("");
   
     const handleInputChange = (event) => {
       const { value } = event.target;
       setInput(value)
     };
+
+    const handleLogic = () =>{
+        setResult(input)
+    }
 
     return(
     <div className="container">
@@ -23,9 +28,10 @@ const Logic = () => {
           />
         </label>
       </form>
-      <button onClick={ input }>
-        Evaluate
+      <button onClick={ handleLogic }>
+        Evaluate 
       </button>
+      <h3> Result: { result }</h3>
 
     </div>
     )
