@@ -1,0 +1,15 @@
+{
+    "compilerOptions": {
+      "target": "es5",
+      "module": "commonjs",
+      "strict": true,
+      "baseUrl": ".",
+      "paths": {
+        "@/*": ["calculator/src/*"]
+      }
+    },
+    "include": [
+      "calculator/src/App.vue"
+    ]
+  }
+  
